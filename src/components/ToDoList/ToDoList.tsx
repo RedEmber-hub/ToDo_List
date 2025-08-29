@@ -3,25 +3,53 @@ import "./ToDoList.scss"
 import { ToDo } from "../../modules/todo-item"
 
 export const ToDoList = () => {
-    const todo1: ToDo = {
-        id: 0,
-        text: 'Первая задача',
-        isDone: false
+    const todos: ToDo[] = [
+        {
+            id: 0,
+            text: 'Первая задача',
+            isDone: false
+        },
+        {
+            id: 1,
+            text: 'Вторая задача',
+            isDone: true
+        },
+        {
+            id: 2,
+            text: 'Третья задача',
+            isDone: true
+        }
+    ]
+
+    const checkedList = () => {
+        return todos
+            .filter((item) => !item.isDone)
+            .map((item, idx) => {
+                return (
+                    <ToDoListItem toDoItem={item} key={idx} />
+                )
+            })
+
     }
 
-    const todo2: ToDo = {
-        id: 1,
-        text: 'Вторая задача',
-        isDone: true
+    const uncheckedList = () => {
+        return todos
+            .filter((item) => item.isDone)
+            .map((item, idx) => {
+                return (
+                    <ToDoListItem toDoItem={item} key={idx} />
+                )
+            })
+
     }
 
     return (
         <div className="todo-container">
             <ul className="todo-list failed">
-                <ToDoListItem toDoItem={todo1} />
+                {checkedList()}
             </ul>
             <ul className="todo-list completed">
-                <ToDoListItem toDoItem={todo2} />
+                {uncheckedList()}
             </ul>
         </div>
     )
