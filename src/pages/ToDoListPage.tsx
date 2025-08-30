@@ -4,6 +4,9 @@ import { Header } from "../components/Header/Header"
 import { ToDoList } from "../components/ToDoList/ToDoList"
 import { ToDo } from "../modules/todo-item"
 
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 export const ToDOListPage = () => {
     const [todos, setTodos] = useState<ToDo[]>([])
 
@@ -38,6 +41,8 @@ export const ToDOListPage = () => {
             <Form createNewToDo={createNewToDo} />
 
             <ToDoList todos={todos} updateToDo={updateToDo} deleteToDo={deleteToDo} />
+
+            <ToastContainer />
         </>
     )
 }
