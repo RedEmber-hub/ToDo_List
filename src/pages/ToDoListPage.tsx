@@ -32,9 +32,20 @@ export const ToDOListPage = () => {
         setTodos([...todos, newToDo])
     }
 
-    const updateToDo = (toDoItem: ToDo) => { }
+    const updateToDo = (toDoItem: ToDo) => {
+        const newTodos = todos.map((todo) => {
+            if (todo.id === toDoItem.id) {
+                todo.isDone = !todo.isDone
+            }
+            return todo
+        })
+        setTodos(newTodos)
+    }
 
-    const deleteToDo = (toDoItem: ToDo) => { }
+    const deleteToDo = (toDoItem: ToDo) => {
+        const newTodos = todos.filter((todo) => todo.id !== toDoItem.id)
+        setTodos(newTodos)
+    }
 
     return (
         <>
