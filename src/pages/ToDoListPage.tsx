@@ -5,23 +5,7 @@ import { ToDoList } from "../components/ToDoList/ToDoList"
 import { ToDo } from "../modules/todo-item"
 
 export const ToDOListPage = () => {
-    const [todos, setTodos] = useState<ToDo[]>([
-        {
-            id: 0,
-            text: 'Первая задача',
-            isDone: false
-        },
-        {
-            id: 1,
-            text: 'Вторая задача',
-            isDone: true
-        },
-        {
-            id: 2,
-            text: 'Третья задача',
-            isDone: true
-        }
-    ])
+    const [todos, setTodos] = useState<ToDo[]>([])
 
     const createNewToDo = (text: string) => {
         const newToDo: ToDo = {
